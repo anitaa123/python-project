@@ -1,0 +1,58 @@
+import numpy as np
+n1 = np.array([1,2,3,4,5])
+n1
+type(n1)
+n2 = np.array([[5,3,7,3,1],[4,6,1,2,3]])
+n2
+#np.zeros()
+n0 = np.zeros((3,3))
+n0
+#pandas series
+import pandas as pd
+s1 = pd.series([5,2,4,9,7])
+s1
+type(s1)
+#pandas dataframe
+pd.Dataframe({"Name":["Liv","Daniel","Phil"],"Marks":[89,95,72]})
+
+#Loading the required Libraries
+import pandas as pd
+from matplotlib import pyplot as plt
+import seaborn as sns
+fifa = pd.read_csv('players_20.csv')
+fifa.Head()
+for col in fifa.columns:
+print(col)
+fifa.shape
+fifa['nationality'].value_counts()
+fifa['nationality'].value_counts()[0:5]
+fifa['nationality'].value_counts()[0:5].keys()
+plt.figure(fig.size = (8,5))
+plt.bar(list(fifa['nationality'].value_counts()[0:5].keys()),list(fifa['nationality'].value_counts()[0:5]),color="g")
+plt.show()
+player_salary = fifa[['short_name','wage_eur']]
+player_salary.head()
+player_salary = player_salary.sort_values(by = ['wage_eur'],ascending = false)
+player_salary.head()
+plt.figure(fig.size = (8,5))
+plt.bar(list(player_salary['short_name'])[0:5],list(player_salary['wage_eur'])[0:5],color=["blue","red","pink","orange","green"]
+plt.show()
+fifa['nationality']=='Germany'
+#Germany
+Germany = fifa[fifa['nationality']=='Germany']
+Germany.head(10)
+Germany.sort_values(by=['height_cm'],ascending = false).head()
+Germany.sort_values(by=['weight_kg'],ascending = false).head()
+Germany.sort_values(by=['wage_eur'],ascending = false).head()
+Germany[['short_name','wage_eur']].sort_values(by=['wage_eur'],ascending = false).head()
+#shooting
+player_shooting = fifa[['short_name','shooting']]
+player_shooting.sort_values(by=['Shooting'],ascending = false).head()
+#defending
+player_defending = fifa[['short_name','defending','nationality','club']]
+player_defending.sort_values(by=['defending'],ascending = false).head()
+real_madrid = fifa[fifa['club']=='Real Madrid']
+real_madrid.sort_values(by=['wage_eur'],ascending = false).head()
+real_madrid.sort_values(by=['shooting'],ascending = false).head()
+real_madrid.sort_values(by=['defending'],ascending = false),head()
+real_madrid['nationality'].value_counts()
